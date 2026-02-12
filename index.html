@@ -269,27 +269,7 @@ footer a {
 <a href="#" class="floating-btn">Download CV</a>
 
 <script>
-/* COUNTER ANIMATION */
-const counters = document.querySelectorAll('.counter');
-const speed = 200;
-
-counters.forEach(counter => {
-    const updateCount = () => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const inc = target / speed;
-
-        if(count < target) {
-            counter.innerText = (count + inc).toFixed(0);
-            setTimeout(updateCount, 10);
-        } else {
-            counter.innerText = target;
-        }
-    };
-    updateCount();
-});
-
-/* SCROLL REVEAL */
+/* ===== SCROLL REVEAL ===== */
 function reveal() {
     const reveals = document.querySelectorAll(".reveal");
     for (let i = 0; i < reveals.length; i++) {
@@ -302,7 +282,54 @@ function reveal() {
 }
 window.addEventListener("scroll", reveal);
 reveal();
-</script>
 
+/* ===== COUNTER ANIMATION (FIXED) ===== */
+
+const counters = document.querySelectorAll('.counter');
+let counterStarted = false;
+
+function startCounters() {
+    if (counterStarted) return;
+
+    const impactSection = document.getElementById("impact");
+    const sectionTop = impactSection.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (sectionTop < windowHeight - 100) {
+        counters.forEach(counter => {
+            const target = parseFloat(counter.getAttribute('data-target'));
+            const isDecimal = target % 1 !== 0;
+            const duration = 2000;
+            const startTime = performance.now();
+
+            function animate(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const value = progress * target;
+
+                if (isDecimal) {
+                    counter.innerText = value.toFixed(2);
+                } else {
+                    counter.innerText = Math.floor(value);
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    counter.innerText = target;
+                }
+            }
+
+            requestAnimationFrame(animate);
+        });
+
+        counterStarted = true;
+    }
+}
+
+window.addEventListener("scroll", startCounters);
+startCounters();
+</script>
+    
 </body>
 </html>
