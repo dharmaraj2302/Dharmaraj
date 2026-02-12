@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dharmaraj S | Enterprise SaaS Solutions Consultant</title>
+<title>Dharmaraj Selvamani | Enterprise SaaS Solutions Consultant</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -52,48 +52,57 @@ body::after {
     z-index: -1;
 }
 /* NAVBAR */
+/* NAVBAR HEIGHT FIX */
 nav {
     position: fixed;
     width: 100%;
     top: 0;
-    padding: 18px 10%;
+    padding: 14px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     backdrop-filter: blur(12px);
-    background: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.75);
     border-bottom: 1px solid rgba(0,0,0,0.05);
     z-index: 1000;
 }
-/* NAV LEFT GROUP */
+
+/* LEFT GROUP */
 .nav-left {
     display: flex;
     align-items: center;
-    gap: 12px;
-}
-/* NAV PROFILE IMAGE */
-.nav-profile-ring {
-    padding: 3px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    gap: 15px;
 }
 
+/* PROFILE RING */
+.nav-profile-ring {
+    padding: 4px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* PROFILE IMAGE (LARGER) */
 .nav-profile-ring img {
-    width: 40px;
-    height: 40px;
+    width: 80px;   /* increased from 40px */
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
     display: block;
     background: white;
 }
-    
+
+/* NAME ALIGNMENT */
 nav h2 {
     font-weight: 800;
-    background: linear-gradient(90deg, #2563eb, #7c3aed);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 1.4rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    line-height: 1;
 }
-
 nav a {
     text-decoration: none;
     margin-left: 25px;
@@ -227,6 +236,45 @@ footer a {
     color: #60a5fa;
     text-decoration: none;
 }
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.contact-btn {
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+    display: inline-block;
+}
+
+.email-btn {
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    color: white;
+}
+
+.email-btn:hover {
+    opacity: 0.9;
+}
+
+.linkedin-btn {
+    background: #0a66c2;
+    color: white;
+}
+
+.linkedin-btn:hover {
+    background: #004182;
+}
+
+.footer-copy {
+    margin-top: 40px;
+    opacity: 0.7;
+}
 
 /* FLOATING BUTTON */
 .floating-btn {
@@ -253,17 +301,39 @@ footer a {
     opacity: 1;
     transform: translateY(0);
 }
+
+.name-wrapper {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.availability-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, #16a34a, #22c55e);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-top: 4px;
+    width: fit-content;
+    box-shadow: 0 4px 10px rgba(34,197,94,0.3);
+}
+
 </style>
 </head>
 
 <body>
 <nav>
     <div class="nav-left">
-        <div class="nav-profile-ring">
-            <img src="your-image.jpg" alt="Dharmaraj S">
-        </div>
-        <h2>Dharmaraj S</h2>
+    <div class="nav-profile-ring">
+        <img src="/root/Downloads/myimg.png" alt="Dharmaraj Selvamani">
     </div>
+    <div class="name-wrapper">
+        <h2>Dharmaraj S</h2>
+        <span class="availability-badge">Available for Opportunities</span>
+    </div>
+</div>
 
     <div>
         <a href="#impact">Impact</a>
@@ -287,7 +357,7 @@ footer a {
 <section id="impact">
     <h2>Impact Metrics</h2>
     <div class="metrics">
-        <div class="metric reveal"><h3 class="counter" data-target="12.55">0</h3><p>$M Revenue Influenced</p></div>
+        <div class="metric reveal"><h3 class="counter" data-target="12.55 Million">0</h3><p>$ Revenue Influenced</p></div>
         <div class="metric reveal"><h3 class="counter" data-target="70">0</h3><p>% Conversion Rate</p></div>
         <div class="metric reveal"><h3 class="counter" data-target="350">0</h3><p>PoCs Delivered</p></div>
         <div class="metric reveal"><h3 class="counter" data-target="500">0</h3><p>Implementations</p></div>
@@ -316,9 +386,22 @@ footer a {
 
 <footer id="contact">
     <h2>Let’s Connect</h2>
-    <p>Email: rajdharma588@gmail.com</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/dharmaraj-selvamani-4009a7124" target="_blank">View Profile</a></p>
-    <p>© 2026 Dharmaraj S</p>
+
+    <div class="contact-buttons">
+        
+        <a href="mailto:itisme@dharmarajs.online?subject=Portfolio - Hi Dharmaraj" class="contact-btn email-btn">
+            ✉ Email Me
+        </a>
+
+        <a href="https://www.linkedin.com/in/dharmaraj-selvamani-4009a7124" 
+           target="_blank" 
+           class="contact-btn linkedin-btn">
+            in LinkedIn
+        </a>
+
+    </div>
+
+    <p class="footer-copy">© 2026 Dharmaraj S</p>
 </footer>
 
 <a href="#" class="floating-btn">Download CV</a>
