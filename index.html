@@ -17,242 +17,292 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #0d1117;
-    color: #e6edf3;
-    line-height: 1.6;
+    background: linear-gradient(135deg, #eef2ff, #ffffff);
+    color: #111827;
+    overflow-x: hidden;
 }
 
-section {
-    padding: 80px 10%;
+/* NAVBAR */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 18px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.6);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    z-index: 1000;
 }
 
-h1, h2, h3 {
-    margin-bottom: 20px;
+nav h2 {
+    font-weight: 800;
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-h1 {
-    font-size: 3rem;
+nav a {
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 500;
+    color: #374151;
+}
+
+/* HERO */
+.hero {
+    padding: 160px 10% 100px 10%;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
     font-weight: 800;
 }
 
-h2 {
-    font-size: 2.2rem;
-    color: #58a6ff;
+.hero span {
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-p {
-    color: #c9d1d9;
+.hero p {
+    max-width: 750px;
+    margin: 25px auto;
+    font-size: 1.1rem;
+    color: #4b5563;
 }
 
 .btn {
-    display: inline-block;
-    padding: 12px 25px;
-    margin-right: 15px;
-    margin-top: 20px;
-    border-radius: 6px;
+    padding: 12px 28px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
+    margin: 10px;
+    display: inline-block;
     transition: 0.3s ease;
 }
 
 .primary {
-    background: #238636;
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
     color: white;
 }
 
 .primary:hover {
-    background: #2ea043;
+    opacity: 0.9;
 }
 
 .secondary {
-    border: 1px solid #58a6ff;
-    color: #58a6ff;
+    border: 2px solid #2563eb;
+    color: #2563eb;
 }
 
 .secondary:hover {
-    background: #58a6ff;
-    color: #0d1117;
+    background: #2563eb;
+    color: white;
 }
 
-.hero {
+/* SECTIONS */
+section {
+    padding: 100px 10%;
+}
+
+h2 {
+    font-size: 2.3rem;
+    margin-bottom: 40px;
     text-align: center;
-    padding-top: 120px;
 }
 
-.hero p {
-    max-width: 700px;
-    margin: auto;
-    margin-top: 20px;
-}
-
+/* METRICS */
 .metrics {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 40px;
+    gap: 30px;
+}
+
+.metric {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
     text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 .metric h3 {
     font-size: 2rem;
-    color: #58a6ff;
+    color: #2563eb;
 }
 
+/* CARDS */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
 .card {
-    background: #161b22;
-    padding: 25px;
-    border-radius: 10px;
-    transition: 0.3s;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.4s ease;
 }
 
 .card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
 }
 
-.footer {
+/* PROFILE */
+.profile {
     text-align: center;
-    padding: 40px;
-    background: #161b22;
 }
 
-.footer a {
-    color: #58a6ff;
+.profile img {
+    width: 160px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+/* FOOTER */
+footer {
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+footer a {
+    color: #60a5fa;
     text-decoration: none;
+}
+
+/* FLOATING BUTTON */
+.floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    color: white;
+    padding: 14px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ANIMATION */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO SECTION -->
-<section class="hero">
-    <h1>Enterprise SaaS Solutions Consultant Driving $12.5M+ Revenue Impact</h1>
+<nav>
+    <h2>Dharmaraj S</h2>
+    <div>
+        <a href="#impact">Impact</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#cases">Case Studies</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<section class="hero reveal">
+    <h1>Hello, I'm <span>Dharmaraj S</span></h1>
     <p>
-        4+ years of experience delivering 2000+ demos, 350+ PoCs, and 500+ enterprise implementations 
-        across BFSI, Healthcare, Government & Enterprise sectors.
+        Enterprise SaaS Solutions Consultant driving $12.5M+ revenue impact 
+        through structured solutioning, enterprise ITSM architecture, 
+        and scalable SaaS adoption strategies.
     </p>
     <a href="#" class="btn primary">Download Resume</a>
     <a href="#impact" class="btn secondary">View My Impact</a>
 </section>
 
-<!-- IMPACT METRICS -->
 <section id="impact">
     <h2>Impact Metrics</h2>
     <div class="metrics">
-        <div class="metric">
-            <h3>$12.55M+</h3>
-            <p>Revenue Influenced</p>
-        </div>
-        <div class="metric">
-            <h3>70%</h3>
-            <p>Demo-to-Deal Conversion</p>
-        </div>
-        <div class="metric">
-            <h3>350+</h3>
-            <p>Proof of Concepts</p>
-        </div>
-        <div class="metric">
-            <h3>500+</h3>
-            <p>Enterprise Implementations</p>
-        </div>
-        <div class="metric">
-            <h3>2000+</h3>
-            <p>Technical Demos</p>
-        </div>
-        <div class="metric">
-            <h3>95%</h3>
-            <p>Client Satisfaction</p>
-        </div>
+        <div class="metric reveal"><h3 class="counter" data-target="12.55">0</h3><p>$M Revenue Influenced</p></div>
+        <div class="metric reveal"><h3 class="counter" data-target="70">0</h3><p>% Conversion Rate</p></div>
+        <div class="metric reveal"><h3 class="counter" data-target="350">0</h3><p>PoCs Delivered</p></div>
+        <div class="metric reveal"><h3 class="counter" data-target="500">0</h3><p>Implementations</p></div>
+        <div class="metric reveal"><h3 class="counter" data-target="2000">0</h3><p>Demos Conducted</p></div>
+        <div class="metric reveal"><h3 class="counter" data-target="95">0</h3><p>% Client Satisfaction</p></div>
     </div>
 </section>
 
-<!-- WHAT I BRING -->
-<section>
-    <h2>What I Bring to the Table</h2>
+<section id="expertise">
+    <h2>What I Bring</h2>
     <div class="card-grid">
-        <div class="card">
-            <h3>Enterprise ITSM Architecture</h3>
-            <p>Designing scalable ITSM, ITAM & ITIL solutions across cloud and on-prem environments.</p>
-        </div>
-        <div class="card">
-            <h3>Revenue-Driven Consulting</h3>
-            <p>70% conversion rate influencing multimillion-dollar enterprise deals.</p>
-        </div>
-        <div class="card">
-            <h3>Deep Integration Expertise</h3>
-            <p>Hands-on integration with AD, Azure, SCCM, APIs and third-party enterprise systems.</p>
-        </div>
-        <div class="card">
-            <h3>Competitive Intelligence</h3>
-            <p>Solution positioning against ServiceNow, Jira, BMC, Freshservice & Salesforce.</p>
-        </div>
+        <div class="card reveal"><h3>Enterprise ITSM Architecture</h3><p>Scalable ITSM & ITIL deployments across enterprise ecosystems.</p></div>
+        <div class="card reveal"><h3>Revenue-Driven Consulting</h3><p>High-conversion technical engagements influencing multimillion-dollar deals.</p></div>
+        <div class="card reveal"><h3>Integration Expertise</h3><p>Azure AD, SCCM, APIs & third-party enterprise system integrations.</p></div>
+        <div class="card reveal"><h3>Competitive Intelligence</h3><p>Strategic positioning against ServiceNow, Jira, BMC & Salesforce.</p></div>
     </div>
 </section>
 
-<!-- CASE STUDIES -->
-<section>
+<section id="cases">
     <h2>Enterprise Case Studies</h2>
     <div class="card-grid">
-        <div class="card">
-            <h3>Omega Healthcare</h3>
-            <p><strong>Impact:</strong> 98.8% query resolution rate.</p>
-            <p>Designed and deployed ITSM & ITIL-aligned ServiceDesk Plus ecosystem.</p>
-        </div>
-        <div class="card">
-            <h3>Bajaj General Insurance</h3>
-            <p><strong>Impact:</strong> Scaled 60 → 400 licenses in 2 days.</p>
-            <p>Led rapid deployment and enterprise license expansion.</p>
-        </div>
+        <div class="card reveal"><h3>Omega Healthcare</h3><p>Achieved 98.8% query resolution with ITIL-aligned ITSM framework.</p></div>
+        <div class="card reveal"><h3>Bajaj General Insurance</h3><p>Scaled 60 → 400 licenses in 2 days with rapid enterprise deployment.</p></div>
     </div>
 </section>
 
-<!-- APPROACH -->
-<section>
-    <h2>My Enterprise Solution Framework</h2>
-    <div class="card-grid">
-        <div class="card"><h3>1. Discovery</h3><p>Stakeholder mapping & requirement analysis.</p></div>
-        <div class="card"><h3>2. Gap Analysis</h3><p>ITIL alignment & architecture blueprinting.</p></div>
-        <div class="card"><h3>3. PoC Execution</h3><p>Risk-driven proof of concept validation.</p></div>
-        <div class="card"><h3>4. Deployment</h3><p>Enterprise-grade implementation & integrations.</p></div>
-        <div class="card"><h3>5. Optimization</h3><p>Post-go-live monitoring & continuous improvement.</p></div>
-    </div>
-</section>
-
-<!-- TECH STACK -->
-<section>
-    <h2>Technical Ecosystem</h2>
-    <div class="card-grid">
-        <div class="card">
-            <h3>Core ITSM Platforms</h3>
-            <p>ServiceDesk Plus, AssetExplorer, SupportCenter Plus</p>
-        </div>
-        <div class="card">
-            <h3>ITOM & Monitoring</h3>
-            <p>OPManager, Site24x7, EndPointCentral</p>
-        </div>
-        <div class="card">
-            <h3>Identity & Integrations</h3>
-            <p>Azure AD, SCCM, ADManager, APIs</p>
-        </div>
-        <div class="card">
-            <h3>Competitive Exposure</h3>
-            <p>ServiceNow, Jira, BMC, Salesforce, SAP</p>
-        </div>
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section class="footer">
+<footer id="contact">
     <h2>Let’s Connect</h2>
     <p>Email: rajdharma588@gmail.com</p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/dharmaraj-selvamani-4009a7124" target="_blank">View Profile</a></p>
     <p>© 2026 Dharmaraj S</p>
-</section>
+</footer>
+
+<a href="#" class="floating-btn">Download CV</a>
+
+<script>
+/* COUNTER ANIMATION */
+const counters = document.querySelectorAll('.counter');
+const speed = 200;
+
+counters.forEach(counter => {
+    const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const inc = target / speed;
+
+        if(count < target) {
+            counter.innerText = (count + inc).toFixed(0);
+            setTimeout(updateCount, 10);
+        } else {
+            counter.innerText = target;
+        }
+    };
+    updateCount();
+});
+
+/* SCROLL REVEAL */
+function reveal() {
+    const reveals = document.querySelectorAll(".reveal");
+    for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        if (elementTop < windowHeight - 100) {
+            reveals[i].classList.add("active");
+        }
+    }
+}
+window.addEventListener("scroll", reveal);
+reveal();
+</script>
 
 </body>
 </html>
