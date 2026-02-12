@@ -65,7 +65,28 @@ nav {
     border-bottom: 1px solid rgba(0,0,0,0.05);
     z-index: 1000;
 }
+/* NAV LEFT GROUP */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+/* NAV PROFILE IMAGE */
+.nav-profile-ring {
+    padding: 3px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
 
+.nav-profile-ring img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    background: white;
+}
+    
 nav h2 {
     font-weight: 800;
     background: linear-gradient(90deg, #2563eb, #7c3aed);
@@ -236,9 +257,14 @@ footer a {
 </head>
 
 <body>
-
 <nav>
-    <h2>Dharmaraj S</h2>
+    <div class="nav-left">
+        <div class="nav-profile-ring">
+            <img src="your-image.jpg" alt="Dharmaraj S">
+        </div>
+        <h2>Dharmaraj S</h2>
+    </div>
+
     <div>
         <a href="#impact">Impact</a>
         <a href="#expertise">Expertise</a>
